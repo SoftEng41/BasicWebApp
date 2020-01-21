@@ -41,6 +41,11 @@ public class QueryProcessor {
                 } else {
                     return num2;
                 }
+            } else if (query.toLowerCase().contains("Fibonacci")) {
+                String[] s = query.toLowerCase().split("the");
+                String[] s1 = s[1].split("th");
+                String num = s1[0].replaceAll("\\s+", "");
+                return String.valueOf(fib(Integer.parseInt(num)));
             } else if (query.toLowerCase().contains("Theresa May")) {
                 return "2016";
             } else if (query.toLowerCase().contains("James Bond")) {
@@ -50,12 +55,25 @@ public class QueryProcessor {
             }
         }
 
-    public static boolean isRootInteger(int number, int root) {
+    private static boolean isRootInteger(int number, int root) {
         double dResult = Math.pow(number, 1.0 / root);
 
         if ((dResult == Math.floor(dResult)) && !Double.isInfinite(dResult)) {
             return true;
         }
         return false;
+    }
+
+    private static int fib(int n) {
+        int a = 0, b = 1, c;
+        if (n == 0)
+            return a;
+        for (int i = 2; i <= n; i++)
+        {
+            c = a + b;
+            a = b;
+            b = c;
+        }
+        return b;
     }
 }
