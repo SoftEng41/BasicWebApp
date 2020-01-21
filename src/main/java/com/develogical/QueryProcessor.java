@@ -20,6 +20,9 @@ public class QueryProcessor {
             } else if (query.toLowerCase().contains("plus")) {
                 String[] s = query.toLowerCase().split("is");
                 String[] s1 = s[1].split("plus");
+                if (s1[1].contains("plus")) {
+                    return "" + (Integer.parseInt(s1[0].replaceAll("\\s+","")) + Integer.parseInt(s1[1].split("plus")[0].replaceAll("\\s+","")) + Integer.parseInt(s1[1].split("plus")[1].replaceAll("\\s+","")));
+                }
 		        return "" + (Integer.parseInt(s1[0].replaceAll("\\s+", "")) + Integer.parseInt(s1[1].replaceAll("\\s+", "")));
             } else if (query.toLowerCase().contains("multiplied")) {
                 String[] s = query.toLowerCase().split("is");
