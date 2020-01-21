@@ -48,9 +48,9 @@ public class QueryProcessor {
                 String[] s1 = s[1].split("th");
                 String num = s1[0].replaceAll("\\s+", "");
                 return String.valueOf(fib(Integer.parseInt(num)));
-            } else if (query.toLowerCase().contains("Theresa May")) {
+            } else if (query.toLowerCase().contains("theresa may")) {
                 return "2016";
-            } else if (query.toLowerCase().contains("James Bond")) {
+            } else if (query.toLowerCase().contains("james bond")) {
                 return "Sean Connery";
             } else if (query.toLowerCase().contains("banana")) {
                 return "yellow";
