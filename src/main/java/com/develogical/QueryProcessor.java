@@ -76,8 +76,10 @@ public class QueryProcessor {
             } else if (query.toLowerCase().contains("power")) {
                 String[] s = query.toLowerCase().split("to the power of");
                 String[] s1 = s[0].split("is");
-                return "" + (Math.pow(Integer.parseInt(s1[1].replaceAll("\\s+", "")), Integer
-                        .parseInt(s[1].replaceAll("\\s+", ""))));
+                double res = (Math
+                        .pow(Integer.parseInt(s1[1].replaceAll("\\s+", "")), Integer
+                                .parseInt(s[1].replaceAll("\\s+", ""))));
+                return String.valueOf((int) res);
             } else {
                 // what is 2 to the power of 2013
                 return "";
