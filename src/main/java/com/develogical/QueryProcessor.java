@@ -18,6 +18,10 @@ public class QueryProcessor {
                     max = Math.max(max, Integer.parseInt(nums[i]));
                 }
                 return max.toString();
+            } else if (query.toLowerCase().contains("plus")) {
+                String[] s = query.toLowerCase().split("is");
+                String[] s1 = s[1].split("plus");
+		return "" + (Integer.parseInt(s1[0]) + Integer.parseInt(s1[1]));
             }
             return "";
         } catch (NullPointerException e) {
