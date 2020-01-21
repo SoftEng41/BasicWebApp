@@ -13,7 +13,7 @@ public class QueryProcessor {
             }
             return "";
         } catch (NullPointerException e) {
-            return "";
+            return "HL";
         }
     }
 }
