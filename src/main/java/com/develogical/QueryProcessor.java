@@ -1,5 +1,6 @@
 package com.develogical;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 public class QueryProcessor {
@@ -79,7 +80,9 @@ public class QueryProcessor {
                 double res = (Math
                         .pow(Integer.parseInt(s1[1].replaceAll("\\s+", "")), Integer
                                 .parseInt(s[1].replaceAll("\\s+", ""))));
-                return Double.parseDouble(String.valueOf(res));
+                BigDecimal bd = new BigDecimal(res);
+
+                return String.valueOf(bd.longValue());
             } else {
                 // what is 2 to the power of 2013
                 return "";
