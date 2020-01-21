@@ -26,6 +26,11 @@ public class QueryProcessor {
                 String[] s1 = s[1].split("multiplied");
                 return "" + (Integer.parseInt(s1[0].replaceAll("\\s+", "")) * Integer
                         .parseInt(s1[1].replaceAll("\\s+", "")));
+            } else if (query.toLowerCase().contains("minus")) {
+                String[] s = query.toLowerCase().split("is");
+                String[] s1 = s[1].split("minus");
+                return "" + (Integer.parseInt(s1[0].replaceAll("\\s+", "")) - Integer
+                        .parseInt(s1[1].replaceAll("\\s+", "")));
             } else {
                 return "";
             }
