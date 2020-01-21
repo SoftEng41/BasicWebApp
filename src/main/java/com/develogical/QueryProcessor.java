@@ -20,7 +20,7 @@ public class QueryProcessor {
             } else if (query.toLowerCase().contains("plus")) {
                 String[] s = query.toLowerCase().split("is");
                 String[] s1 = s[1].split("plus");
-		        return "" + (Integer.parseInt(s1[0]) + Integer.parseInt(s1[1].replaceAll("\\s+", "")));
+		        return "" + (Integer.parseInt(s1[0].replaceAll("\\s+", "")) + Integer.parseInt(s1[1].replaceAll("\\s+", "")));
             } else {
                 return "";
             }
