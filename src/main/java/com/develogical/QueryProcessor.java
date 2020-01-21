@@ -50,7 +50,7 @@ public class QueryProcessor {
                 // /api/?q=1c3d9be0:%20what%20is%20the%2017th%20number%20in%20the%20Fibonacci%20sequence
             } else if (query.toLowerCase().contains("fibonacci")) {
                 String[] s = query.toLowerCase().split("the");
-                String[] s1 = s[1].split("th");
+                String[] s1 = s[1].split("th")[0].split("st")[0].split("rd")[0].split("nd");
                 String num = s1[0].replaceAll("\\s+", "");
                 return String.valueOf(fib(Integer.parseInt(num)));
             } else if (query.toLowerCase().contains("theresa may")) {
@@ -79,7 +79,7 @@ public class QueryProcessor {
                 double res = (Math
                         .pow(Integer.parseInt(s1[1].replaceAll("\\s+", "")), Integer
                                 .parseInt(s[1].replaceAll("\\s+", ""))));
-                return String.valueOf(Double.parseDouble(String.valueOf(res)));
+                return Double.parseDouble(String.valueOf(res));
             } else {
                 // what is 2 to the power of 2013
                 return "";
