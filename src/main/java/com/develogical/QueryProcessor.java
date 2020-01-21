@@ -41,17 +41,36 @@ public class QueryProcessor {
                 } else {
                     return num2;
                 }
+                // /api/?q=1c3d9be0:%20what%20is%20the%2017th%20number%20in%20the%20Fibonacci%20sequence
+            } else if (query.toLowerCase().contains("Fibonacci")) {
+                String[] s = query.toLowerCase().split("the");
+                String[] s1 = s[1].split("th");
+                String num = s1[0].replaceAll("\\s+", "");
+                return String.valueOf(fib(Integer.parseInt(num)));
             } else {
                 return "";
             }
         }
 
-    public static boolean isRootInteger(int number, int root) {
+    private static boolean isRootInteger(int number, int root) {
         double dResult = Math.pow(number, 1.0 / root);
 
         if ((dResult == Math.floor(dResult)) && !Double.isInfinite(dResult)) {
             return true;
         }
         return false;
+    }
+
+    private static int fib(int n) {
+        int a = 0, b = 1, c;
+        if (n == 0)
+            return a;
+        for (int i = 2; i <= n; i++)
+        {
+            c = a + b;
+            a = b;
+            b = c;
+        }
+        return b;
     }
 }
