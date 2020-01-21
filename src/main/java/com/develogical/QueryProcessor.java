@@ -34,14 +34,16 @@ public class QueryProcessor {
             } else if (query.toLowerCase().contains("square") && query.toLowerCase().contains("cube")) {
                 String[] parts = query.split(":");
                 String[] nums = parts[2].split(",");
-                String num1 = nums[0].replaceAll("\\s+", "");
-                String num2 = nums[1].replaceAll("\\s+", "");
-                if (isRootInteger(Integer.parseInt(num1), 2) && isRootInteger(Integer.parseInt(num1), 3)) {
-                    return num1;
-                } else {
-                    return num2;
+                for (int i = 0; i < nums.length; i++) {
+                    String num = nums[i].replaceAll("\\s+", "");
+                    if (isRootInteger(Integer.parseInt(num), 2) && isRootInteger(
+                            Integer.parseInt(num), 3)) {
+                        return num;
+                    }
                 }
-            } else if (query.toLowerCase().contains("Fibonacci")) {
+                return "";
+                // /api/?q=1c3d9be0:%20what%20is%20the%2017th%20number%20in%20the%20Fibonacci%20sequence
+            } else if (query.toLowerCase().contains("fibonacci")) {
                 String[] s = query.toLowerCase().split("the");
                 String[] s1 = s[1].split("th");
                 String num = s1[0].replaceAll("\\s+", "");
