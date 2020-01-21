@@ -10,6 +10,14 @@ public class QueryProcessor {
                         "writer in the English language and the world's pre-eminent dramatist.";
             } else if (query.toLowerCase().contains("hang")) {
                 return "Hang Li Li is a Computing student at Imperial College London";
+            } else if (query.toLowerCase().contains("largest")){
+                String[] parts = query.split(":");
+                String[] nums = parts[1].split(",");
+                Integer max = Integer.MIN_VALUE;
+                for (int i = 0; i < nums.length; i++) {
+                    max = Math.max(max, Integer.parseInt(nums[i]));
+                }
+                return max.toString();
             }
             return "";
         } catch (NullPointerException e) {
