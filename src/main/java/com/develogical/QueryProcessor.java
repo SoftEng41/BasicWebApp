@@ -50,6 +50,8 @@ public class QueryProcessor {
                 return String.valueOf(fib(Integer.parseInt(num)));
             } else if (query.toLowerCase().contains("Theresa May")) {
                 return "2016";
+            } else if (query.toLowerCase().contains("James Bond")) {
+                return "Sean Connery";
             } else {
                 return "";
             }
