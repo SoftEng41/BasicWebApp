@@ -70,7 +70,12 @@ public class QueryProcessor {
                 return "yellow";
             } else if (query.toLowerCase().contains("eiffel")) {
                 return "Paris";
-            }  else {
+            } else if (query.toLowerCase().contains("power")) {
+                String[] s = query.toLowerCase().split("is");
+                String[] s1 = s[1].split("power");
+                return "" + (Math.pow(Integer.parseInt(s1[0].replaceAll("\\s+", "")), Integer
+                        .parseInt(s1[1].replaceAll("\\s+", ""))));
+            } else {
                 return "";
             }
         }
