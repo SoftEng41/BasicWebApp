@@ -79,7 +79,7 @@ public class QueryProcessor {
                 double res = (Math
                         .pow(Integer.parseInt(s1[1].replaceAll("\\s+", "")), Integer
                                 .parseInt(s[1].replaceAll("\\s+", ""))));
-                return String.valueOf(res);
+                return String.valueOf(Double.parseDouble(String.valueOf(res)));
             } else {
                 // what is 2 to the power of 2013
                 return "";
