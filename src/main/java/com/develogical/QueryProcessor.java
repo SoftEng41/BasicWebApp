@@ -1,5 +1,7 @@
 package com.develogical;
 
+import java.util.*;
+
 public class QueryProcessor {
 
     public String process(String query) {
@@ -52,6 +54,18 @@ public class QueryProcessor {
                 return "2016";
             } else if (query.toLowerCase().contains("James Bond")) {
                 return "Sean Connery";
+                // 3e0:%20which%20of%20the%20following%20numbers%20are%20primes:%20539,%20541"
+            } else if (query.toLowerCase().contains("primes")) {
+                String[] parts = query.split(":");
+                String[] nums = parts[2].split(",");
+                List<Integer> list = new ArrayList<>();
+                for (int i = 0; i < nums.length; i++) {
+                    String num = nums[i].replaceAll("\\s+", "");
+                    if (isPrime(Integer.parseInt(num))) {
+                        list.add(Integer.parseInt(num));
+                    }
+                }
+                return list.toString();
             } else {
                 return "";
             }
@@ -64,6 +78,19 @@ public class QueryProcessor {
             return true;
         }
         return false;
+    }
+
+    private static boolean isPrime(int n) {
+        // Corner case
+        if (n <= 1)
+            return false;
+
+        // Check from 2 to n-1
+        for (int i = 2; i < n; i++)
+            if (n % i == 0)
+                return false;
+
+        return true;
     }
 
     private static int fib(int n) {
