@@ -41,6 +41,8 @@ public class QueryProcessor {
                 } else {
                     return num2;
                 }
+            } else if (query.toLowerCase().contains("Theresa May")) {
+                return "2016";
             } else {
                 return "";
             }
