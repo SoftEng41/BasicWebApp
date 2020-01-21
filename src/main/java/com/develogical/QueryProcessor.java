@@ -14,13 +14,13 @@ public class QueryProcessor {
                 String[] nums = parts[2].split(",");
                 Integer max = Integer.MIN_VALUE;
                 for (int i = 0; i < nums.length; i++) {
-                    max = Math.max(max, Integer.parseInt(nums[i]));
+                    max = Math.max(max, Integer.parseInt(nums[i].replaceAll("\\s+", "")));
                 }
                 return max.toString();
             } else if (query.toLowerCase().contains("plus")) {
                 String[] s = query.toLowerCase().split("is");
                 String[] s1 = s[1].split("plus");
-		        return "" + (Integer.parseInt(s1[0]) + Integer.parseInt(s1[1]));
+		        return "" + (Integer.parseInt(s1[0]) + Integer.parseInt(s1[1].replaceAll("\\s+", "")));
             } else {
                 return "";
             }
