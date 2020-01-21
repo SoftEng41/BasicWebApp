@@ -25,6 +25,9 @@ public class QueryProcessor {
                 String[] s1 = s[1].split("plus");
                 if (s1[1].contains("plus")) {
                     return "" + (Integer.parseInt(s1[0].replaceAll("\\s+","")) + Integer.parseInt(s1[1].replaceAll("\\s+","").split("plus")[0].replaceAll("\\s+","")) + Integer.parseInt(s1[1].replaceAll("\\s+","").split("plus")[1].replaceAll("\\s+","")));
+                } else if (s1[1].contains("multiplied")) {
+                   String[] s2 = s1[1].split("multiplied by");
+                   return "" + (Integer.parseInt(s1[0].replaceAll("\\s+","")) + (Integer.parseInt(s2[0].replaceAll("\\s+","")) * Integer.parseInt(s2[1].replaceAll("\\s+",""))));
                 }
 		        return "" + (Integer.parseInt(s1[0].replaceAll("\\s+", "")) + Integer.parseInt(s1[1].replaceAll("\\s+", "")));
             } else if (query.toLowerCase().contains("multiplied")) {
