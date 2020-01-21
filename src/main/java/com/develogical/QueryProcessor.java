@@ -41,7 +41,8 @@ public class QueryProcessor {
                 } else {
                     return num2;
                 }
-            } else if (query.toLowerCase().contains("Fibonacci")) {
+                // /api/?q=1c3d9be0:%20what%20is%20the%2017th%20number%20in%20the%20Fibonacci%20sequence
+            } else if (query.toLowerCase().contains("fibonacci")) {
                 String[] s = query.toLowerCase().split("the");
                 String[] s1 = s[1].split("th");
                 String num = s1[0].replaceAll("\\s+", "");
